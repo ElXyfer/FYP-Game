@@ -9,6 +9,7 @@ public class AgentScript : MonoBehaviour {
 	public Transform target;
 	NavMeshAgent agent;
 
+
 	// Use this for initialization
 	void Start () {
 		agent = GetComponent<NavMeshAgent>();
@@ -16,7 +17,11 @@ public class AgentScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		agent.SetDestination(target.position);
 		
+		
+	}
+
+	public void startNavMesh() {
+		agent.SetDestination(target.position);
 	}
 }
