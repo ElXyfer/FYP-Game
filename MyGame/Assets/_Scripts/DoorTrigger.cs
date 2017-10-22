@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 
 public class DoorTrigger : MonoBehaviour {
 
 	private bool doorIsOpen = false;
 	Animator anim;
-	public Camera FirstPersonCam, MainCam;
+	//public Camera FirstPersonCam, MainCam;
 	public GameObject capsulGO;
 	private AgentScript agentScript;
 
@@ -17,7 +18,7 @@ public class DoorTrigger : MonoBehaviour {
 	void Awake () {
 		anim = GetComponent<Animator>();
 		agentScript = capsulGO.GetComponent<AgentScript>();
-
+		//MainCam.gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -27,16 +28,14 @@ public class DoorTrigger : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other) {
 
-		FirstPersonCam.gameObject.SetActive(true);
-		MainCam.gameObject.SetActive(false);
-		agentScript.startNavMesh();
-
-			
-
 			anim.SetTrigger("Open");
 			doorIsOpen = true;
 			if(doorIsOpen)
 			{
+
+//				MainCam.gameObject.SetActive(false);
+//				FirstPersonCam.gameObject.SetActive(true);
+			SceneManager.LoadScene("CutScene_1");
 				anim.SetTrigger("KeepOpen");
 			}	
 	}

@@ -20,7 +20,7 @@ public class LevelManager : MonoBehaviour {
 	void OnTriggerEnter(Collider col){
 		
 	    if(col.gameObject.tag == "Character"){
-			SceneManager.LoadScene("Room");
+			SceneManager.LoadScene("CutScene_1");
 	  }
 
 		if(this.gameObject.tag == "R2Door2"){
