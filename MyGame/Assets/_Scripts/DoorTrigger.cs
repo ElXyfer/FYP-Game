@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
 
 
 public class DoorTrigger : MonoBehaviour {
@@ -12,6 +13,7 @@ public class DoorTrigger : MonoBehaviour {
 	//public Camera FirstPersonCam, MainCam;
 	public GameObject capsulGO;
 	private AgentScript agentScript;
+	public PlayableDirector playableDirector;
 
 
 	// Use this for initialization
@@ -31,7 +33,9 @@ public class DoorTrigger : MonoBehaviour {
 			anim.SetTrigger("Open");
 			doorIsOpen = true;
 			if(doorIsOpen)
-			{
+			{	
+
+		playableDirector.Play();
 
 //				MainCam.gameObject.SetActive(false);
 //				FirstPersonCam.gameObject.SetActive(true);
