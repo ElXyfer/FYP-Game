@@ -11,6 +11,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Room.unity
     guid: 1947fe79b259448a99e84a89fe91b4fe
+  - enabled: 1
+    path: Assets/_Scenes/Basement.unity
+    guid: 9cb0e9d2e11c34821b980df35a9cc7c1
   - enabled: 0
     path: Assets/Scenes/Persistent.unity
     guid: 00000000000000000000000000000000
@@ -20,9 +23,6 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Market.unity
     guid: 00000000000000000000000000000000
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/CutScene_1.unity
     guid: 68ddeb31d800f454c805ee563f24efd1
-  - enabled: 1
-    path: Assets/_Scenes/Basement.unity
-    guid: 00000000000000000000000000000000
