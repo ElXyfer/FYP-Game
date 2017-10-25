@@ -457,7 +457,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!92 &57420495
 Behaviour:
   m_ObjectHideFlags: 0
@@ -661,13 +661,32 @@ GameObject:
   - component: {fileID: 227975830}
   - component: {fileID: 227975829}
   - component: {fileID: 227975828}
+  - component: {fileID: 227975832}
+  - component: {fileID: 227975827}
   m_Layer: 0
   m_Name: High view cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
+--- !u!95 &227975827
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 227975826}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!92 &227975828
 Behaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +749,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 579625660}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 39.62, y: -68.66, z: 0}
+  m_LocalEulerAnglesHint: {x: -0.000578885, y: 359.9244, z: 0.09372656}
+--- !u!320 &227975832
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 227975826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 49b1dbfe7011040dab323db0967c1156, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 114015063405090860, guid: 49b1dbfe7011040dab323db0967c1156, type: 2}
+    value: {fileID: 227975826}
+  m_ExposedReferences:
+    m_References: []
 --- !u!1 &267181763
 GameObject:
   m_ObjectHideFlags: 0
@@ -4100,7 +4137,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334840285}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!92 &1334840287
 Behaviour:
   m_ObjectHideFlags: 0
@@ -4158,7 +4195,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1334840285}
   m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -5.18, y: 1.54, z: -5.956}
+  m_LocalPosition: {x: -6.3, y: 1.54, z: -5.956}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4173,7 +4210,7 @@ Animator:
   m_GameObject: {fileID: 1334840285}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0dcf07be3ef4a4e5db371b4b607808b3, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4189,16 +4226,14 @@ PlayableDirector:
   m_GameObject: {fileID: 1334840285}
   m_Enabled: 1
   serializedVersion: 3
-  m_PlayableAsset: {fileID: 11400000, guid: dacdfc13c27fe4dc3a4bd691ea9e87b8, type: 2}
+  m_PlayableAsset: {fileID: 11400000, guid: 0788db7eee0674ad1979d86043b68ac3, type: 2}
   m_InitialState: 0
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
   m_SceneBindings:
-  - key: {fileID: 114551159317255516, guid: dacdfc13c27fe4dc3a4bd691ea9e87b8, type: 2}
+  - key: {fileID: 114060250755274632, guid: 0788db7eee0674ad1979d86043b68ac3, type: 2}
     value: {fileID: 1334840285}
-  - key: {fileID: 0}
-    value: {fileID: 1804258263}
   - key: {fileID: 0}
     value: {fileID: 1804258263}
   m_ExposedReferences:
@@ -5728,8 +5763,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e675ef3b07843598d9a44ccd2d0d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  FirstPersonCam: {fileID: 1334840289}
-  MainCam: {fileID: 823232391}
+  cameras:
+  - {fileID: 823232391}
+  - {fileID: 1334840289}
+  - {fileID: 57420497}
+  - {fileID: 227975830}
   capsulGO: {fileID: 1804258263}
   playableDirector: {fileID: 1334840292}
 --- !u!111 &1997485251

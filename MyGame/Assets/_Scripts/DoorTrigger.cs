@@ -10,7 +10,9 @@ public class DoorTrigger : MonoBehaviour {
 
 	private bool doorIsOpen = false;
 	Animator anim;
-	public Camera FirstPersonCam, MainCam;
+	//public Camera FirstPersonCam, MainCam;
+
+	public List<Camera> cameras = new List<Camera>();
 	public GameObject capsulGO;
 	private AgentScript agentScript;
 	public PlayableDirector playableDirector;
@@ -33,12 +35,9 @@ public class DoorTrigger : MonoBehaviour {
 			doorIsOpen = true;
 			if(doorIsOpen)
 			{	
-
-		//playableDirector.Play();
-
-
-				MainCam.gameObject.SetActive(false);
-				FirstPersonCam.gameObject.SetActive(true);
+				cameras[0].gameObject.SetActive(false);
+				cameras[1].gameObject.SetActive(true);
+				playableDirector.Play();
 				agentScript.startNavMesh();
 				anim.SetTrigger("KeepOpen");
 			}	
