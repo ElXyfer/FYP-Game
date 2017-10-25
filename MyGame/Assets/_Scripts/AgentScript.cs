@@ -17,11 +17,13 @@ public class AgentScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		agent.SetDestination(target.position);
+		
 		
 	}
 
-	public void startNavMesh() {
-		
+	public void startNavMesh() {	
+
+		agent.SetDestination(target.position);
+			
 	}
 }

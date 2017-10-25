@@ -2328,6 +2328,11 @@ AudioListener:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 823232386}
   m_Enabled: 1
+--- !u!20 &823232391 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 2000000, guid: baec086904791744185aaa07a6cf55c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 272844345}
 --- !u!1 &835057996 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1359407995210866, guid: af086fb280d3a484a9097d0b6175b9c6,
@@ -4088,7 +4093,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1334840286
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4137,7 +4142,7 @@ Camera:
     m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 1
+  m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
@@ -5723,6 +5728,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e675ef3b07843598d9a44ccd2d0d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  FirstPersonCam: {fileID: 1334840289}
+  MainCam: {fileID: 823232391}
   capsulGO: {fileID: 1804258263}
   playableDirector: {fileID: 1334840292}
 --- !u!111 &1997485251
