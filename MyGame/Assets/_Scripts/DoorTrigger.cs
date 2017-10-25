@@ -8,20 +8,23 @@ using UnityEngine.Playables;
 
 public class DoorTrigger : MonoBehaviour {
 
-	private bool doorIsOpen = false;
 	Animator anim;
-	//public Camera FirstPersonCam, MainCam;
-
-	public List<Camera> cameras = new List<Camera>();
-	public GameObject capsulGO;
-	private AgentScript agentScript;
 	public PlayableDirector playableDirector;
+	public GameObject capsulGO;
+	public GameObject FPCamera;
+
+	private bool doorIsOpen = false;
+	private AgentScript agentScript;
+	private CameraSwitch cameraSwitch;
 
 
 	// Use this for initialization
 	void Awake () {
+
+//		cameraSwitch.cameras[1].gameObject.SetActive(false);
 		anim = GetComponent<Animator>();
 		agentScript = capsulGO.GetComponent<AgentScript>();
+		cameraSwitch = FPCamera.GetComponent<CameraSwitch>();
 	}
 	
 	// Update is called once per frame
@@ -35,8 +38,7 @@ public class DoorTrigger : MonoBehaviour {
 			doorIsOpen = true;
 			if(doorIsOpen)
 			{	
-				cameras[0].gameObject.SetActive(false);
-				cameras[1].gameObject.SetActive(true);
+				cameraSwitch.changeCamera(0);
 				playableDirector.Play();
 				agentScript.startNavMesh();
 				anim.SetTrigger("KeepOpen");

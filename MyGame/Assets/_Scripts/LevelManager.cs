@@ -15,13 +15,16 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
+	void AnimationComplete() {
 
+		SceneManager.LoadScene("Basement");
+	}
 
 	void OnTriggerEnter(Collider col){
 		
-	    if(col.gameObject.tag == "Character"){
-			SceneManager.LoadScene("CutScene_1");
-	  }
+//	    if(col.gameObject.tag == "Character"){
+//			SceneManager.LoadScene("CutScene_1");
+//	  }
 
 		if(this.gameObject.tag == "R2Door2"){
 			SceneManager.LoadScene("Main");
