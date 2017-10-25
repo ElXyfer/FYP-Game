@@ -10,7 +10,7 @@ public class DoorTrigger : MonoBehaviour {
 
 	private bool doorIsOpen = false;
 	Animator anim;
-	//public Camera FirstPersonCam, MainCam;
+	public Camera FirstPersonCam, MainCam;
 	public GameObject capsulGO;
 	private AgentScript agentScript;
 	public PlayableDirector playableDirector;
@@ -20,7 +20,6 @@ public class DoorTrigger : MonoBehaviour {
 	void Awake () {
 		anim = GetComponent<Animator>();
 		agentScript = capsulGO.GetComponent<AgentScript>();
-		//MainCam.gameObject.SetActive(true);
 	}
 	
 	// Update is called once per frame
@@ -35,11 +34,12 @@ public class DoorTrigger : MonoBehaviour {
 			if(doorIsOpen)
 			{	
 
-		playableDirector.Play();
+		//playableDirector.Play();
 
-//				MainCam.gameObject.SetActive(false);
-//				FirstPersonCam.gameObject.SetActive(true);
-			SceneManager.LoadScene("CutScene_1");
+
+				MainCam.gameObject.SetActive(false);
+				FirstPersonCam.gameObject.SetActive(true);
+				agentScript.startNavMesh();
 				anim.SetTrigger("KeepOpen");
 			}	
 	}
