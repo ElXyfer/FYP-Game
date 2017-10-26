@@ -24,7 +24,7 @@ public class PlayerAwake : MonoBehaviour {
 
 	public void AnimationComplete1() {
 		ethan.gameObject.SetActive(true);
-		cameraSwitch.changeCamera(0);
+		cameraSwitch.changeCamera(1);
 	}
 
 	
