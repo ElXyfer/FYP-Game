@@ -11,21 +11,14 @@ public class CameraSwitch : MonoBehaviour {
 	}
 
 
-	public void changeCamera(int currentCamera) {
-		// Set current camera to false, set new camera to true
-		//cameras[0].gameObject.SetActive(false);
-		//cameras[1].gameObject.SetActive(true);
-		for (int camera = 0; camera < cameras.Count + 1; camera++) {
-			// if current item is not the last item
-			if (cameras[camera] != cameras[cameras.Count - 1]) {
-				// if the index matches the current camera, sets current camera to false, sets the camera to true
-				if (camera == currentCamera) {
-					cameras[camera].gameObject.SetActive(false);
-					cameras[camera + 1].gameObject.SetActive(true);
-				}
-			}
-			break;
-		}
+	public void changeCamera(int desiredActiveCamera)
+	{
+		// provided camera is < the number of cameras, add 1
+	    for (int camera = 0; camera < cameras.Count; camera++)
+	    {
+	    	// if (parameter) matches camera, set desiredActive camera to true 
+	        cameras[camera].gameObject.SetActive(desiredActiveCamera == camera);
+	    }
 	}
 
 }

@@ -5728,6 +5728,7 @@ GameObject:
   - component: {fileID: 1997485245}
   - component: {fileID: 1997485251}
   - component: {fileID: 1997485250}
+  - component: {fileID: 1997485249}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -5817,6 +5818,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1997485243}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1997485249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1997485243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb2289b733c948db8f85f7360d157f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playableDirector: {fileID: 1334840292}
+  capsulGO: {fileID: 1804258263}
+  fpcam: {fileID: 1334840285}
 --- !u!114 &1997485250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5828,9 +5843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e675ef3b07843598d9a44ccd2d0d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playableDirector: {fileID: 1334840292}
-  capsulGO: {fileID: 1804258263}
-  FPCamera: {fileID: 1334840285}
+  fpCam: {fileID: 1997485243}
 --- !u!111 &1997485251
 Animation:
   m_ObjectHideFlags: 0
