@@ -8,6 +8,8 @@ TagManager:
   - Character
   - Fruit
   - Grape
+  - Door1
+  - Door2
   layers:
   - Default
   - TransparentFX

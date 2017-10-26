@@ -7,27 +7,29 @@ public class DoorTrigger : MonoBehaviour {
 	Animator anim;
 	private bool doorIsOpen = false;
 	private FPScript fpScript;
-	public GameObject fpCam;
+	public GameObject doorObject;
 
 
 
 	// Use this for initialization
 	void Awake () {
 		anim = GetComponent<Animator>();
-		fpScript = fpCam.GetComponent<FPScript>();
+		fpScript = doorObject.GetComponent<FPScript>();
 	}
 
 
 	void OnTriggerEnter(Collider other) {
-		
+		if(this.gameObject.tag == "Door1") {
 			anim.SetTrigger("Open");
 			doorIsOpen = true;
 			if(doorIsOpen)
 			{	
 				anim.SetTrigger("KeepOpen");
-				fpScript.SwitchCam_PlayScene();
-
+				//fpScript.SwitchCam_PlayScene();
 			}	
+		} else if(this.gameObject.tag == "Door2" && Inventory.FruitAmount == 1) {
+				anim.SetTrigger("Open");
+		}
 	}
 
 	void OnTriggerStay(Collider other) {

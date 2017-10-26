@@ -5731,7 +5731,7 @@ GameObject:
   - component: {fileID: 1997485249}
   m_Layer: 0
   m_Name: Door
-  m_TagString: Untagged
+  m_TagString: Door1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 8
@@ -5843,7 +5843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49e675ef3b07843598d9a44ccd2d0d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpCam: {fileID: 1997485243}
+  doorObject: {fileID: 1997485243}
 --- !u!111 &1997485251
 Animation:
   m_ObjectHideFlags: 0
