@@ -4404,6 +4404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   rotationSpeed: 100
+  isMoving: 0
 --- !u!54 &1348665845
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4431,25 +4432,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5719242, y: 1.5589151, z: 0.39364624}
   m_Center: {x: -0.006737709, y: 0.79884005, z: 0.009843826}
---- !u!114 &1348665847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1348665843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce7a80d520cacc042b5fe14f373d8173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_MovingTurnSpeed: 360
-  m_StationaryTurnSpeed: 180
-  m_JumpPower: 12
-  m_GravityMultiplier: 2
-  m_RunCycleLegOffset: 0.2
-  m_MoveSpeedMultiplier: 1
-  m_AnimSpeedMultiplier: 1
-  m_GroundCheckDistance: 0.1
 --- !u!136 &1348665848
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4483,6 +4465,7 @@ MonoBehaviour:
   fruits: []
   bananaPrefab: {fileID: 1899015845681200, guid: a315e30b1b3b94649bc2de48a03795d1,
     type: 2}
+  pointLight: {fileID: 0}
   haveBanana: 0
 --- !u!114 &1348665850
 MonoBehaviour:

@@ -12,29 +12,51 @@ public class Inventory : MonoBehaviour {
 	public GameObject fruitIcon;
 	public List<GameObject> fruits = new List<GameObject>();
 
+
 	public GameObject bananaPrefab;
+	public GameObject pointLight;
 	private GameObject bananaGUI;
+	private AnimationScript animationscript;
 
 	public bool haveBanana = false;
 
 	// Use this for initialization
 	void Start () {
+		animationscript = GetComponent<AnimationScript>();
 		FruitAmount = 0;
+		//StartCoroutine(MyCoroutine());
 	}
 
-	void OnTriggerEnter(Collider fruit) {
+	void OnTriggerEnter(Collider item) {
 		// look through all icons in inventory 
-		if(fruit.gameObject.tag == "Fruit") {
-			TriggerTing(fruit);
+		if(item.gameObject.tag == "Fruit") {
+			TriggerTing(item);
 		}
+
+		if(item.gameObject.tag == "HairPin") {
+			
+				print("Hair pin found ! this could be usefull. Press T to take it"); 
+				animationscript.PickUpItem();
+//			IEnumerator MyCoroutine () {
+//				yield return new WaitForSeconds(3f);
+				pointLight.SetActive(false);
+			//}
+				
+		}	
 	}
 
+	void OnTriggerExit(Collider item) {
+			
+	} 
 
-	void TriggerTing(Collider fruit){
+
+
+
+	void TriggerTing(Collider item){
 		foreach(Transform child in inventoryPanel.transform) {
 
 			// if item in inventory has same tag as collected item
-			if(child.gameObject.tag == fruit.gameObject.tag) {
+			if(child.gameObject.tag == item.gameObject.tag) {
 
 				// gets the next in the child (number)
 				string c = child.Find("Text").GetComponent<Text>().text;
@@ -48,7 +70,7 @@ public class Inventory : MonoBehaviour {
 		}
 
 
-		if(fruit.gameObject.tag == "Fruit") {
+		if(item.gameObject.tag == "Fruit") {
 
 			FruitAmount++;
 			print("fruit amount is " + FruitAmount);
@@ -82,9 +104,9 @@ public class Inventory : MonoBehaviour {
 
 		if(haveBanana == true) 
 		{
-			foreach (var fruit in fruits)
+			foreach (var item in fruits)
 			{
-				fruit.SetActive(false);
+				item.SetActive(false);
 			}
 		}	
 	}

@@ -10,6 +10,7 @@ TagManager:
   - Grape
   - Door1
   - Door2
+  - HairPin
   layers:
   - Default
   - TransparentFX

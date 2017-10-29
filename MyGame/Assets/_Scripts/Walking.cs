@@ -8,6 +8,7 @@ public class Walking : MonoBehaviour {
 
 	public float speed = 1f;
 	public float rotationSpeed = 100.0f;
+	public bool isMoving = false;
 
 //	public float vert;
 //	public float hori;
@@ -26,6 +27,8 @@ public class Walking : MonoBehaviour {
 //		Sprinting();
 
 		if(Input.GetButtonDown("Jump")) {
+			speed = 0f;
+			isMoving = false;
 			anim.SetTrigger("isJumping");
 
 		}
@@ -39,13 +42,23 @@ public class Walking : MonoBehaviour {
         transform.Rotate(0, rotation, 0);
 
         if(translation != 0) {
-        	anim.SetBool("isRunning", true);
+			isMoving = true;
+        	anim.SetBool("isWalking", true);
+
         	anim.SetBool("isIdle", false);
 
-        } else {
-			anim.SetBool("isRunning", false);
-			anim.SetBool("isIdle", true);
+        } 
+//        else {
+//			anim.SetBool("isWalking", false);
+//			anim.SetBool("isIdle", true);
+//        }
+
+        if(isMoving == false) {
+			anim.SetBool("isWalking", false);
+
         }
+   
+
 
 
 	}
