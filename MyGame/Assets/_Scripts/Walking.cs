@@ -27,9 +27,14 @@ public class Walking : MonoBehaviour {
 //		Sprinting();
 
 		if(Input.GetButtonDown("Jump")) {
-			speed = 0f;
+			
 			isMoving = false;
+			if(isMoving == false){
+				speed = 0f;
 			anim.SetTrigger("isJumping");
+			anim.SetBool("isWalking", false);
+			anim.SetBool("isRunning", false);
+			}
 
 		}
 
@@ -43,23 +48,23 @@ public class Walking : MonoBehaviour {
 
         if(translation != 0) {
 			isMoving = true;
+			if(isMoving == true){
+				speed = 1f;
         	anim.SetBool("isWalking", true);
-
         	anim.SetBool("isIdle", false);
+			anim.SetBool("isRunning", false);
+
+        	if(Input.GetKey(KeyCode.Z)){
+        		anim.SetBool("isRunning", true);
+        		speed = 3f;
+        	}
+        }
 
         } 
-//        else {
-//			anim.SetBool("isWalking", false);
-//			anim.SetBool("isIdle", true);
-//        }
-
-        if(isMoving == false) {
+        else {
 			anim.SetBool("isWalking", false);
-
+			anim.SetBool("isIdle", true);
         }
-   
-
-
 
 	}
 
