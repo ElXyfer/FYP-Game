@@ -19,4 +19,8 @@ public class AnimationScript : MonoBehaviour {
 	public void PickUpItem(){
 		anim.SetBool("isPickingUp", true);
 	}
+
+	public void Fight(){
+		anim.SetBool("isAttacking", true);
+	}
 }

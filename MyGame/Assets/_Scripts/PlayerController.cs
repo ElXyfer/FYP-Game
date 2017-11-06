@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Walking : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 
 	private Animator anim;
 
@@ -26,15 +26,13 @@ public class Walking : MonoBehaviour {
 //		hori = Input.GetAxis("Horizontal");
 //		Sprinting();
 
-		if(Input.GetButtonDown("Jump")) {
+		if(Input.GetKeyDown("space")) {
 			
-			isMoving = false;
-			if(isMoving == false){
-				speed = 0f;
-			anim.SetTrigger("isJumping");
+			anim.SetBool("isAttacking", true);
+				anim.SetBool("isIdle", false);
 			anim.SetBool("isWalking", false);
 			anim.SetBool("isRunning", false);
-			}
+
 
 		}
 
@@ -53,6 +51,7 @@ public class Walking : MonoBehaviour {
         	anim.SetBool("isWalking", true);
         	anim.SetBool("isIdle", false);
 			anim.SetBool("isRunning", false);
+				anim.SetBool("isAttacking", false);
 
         	if(Input.GetKey(KeyCode.Z)){
         		anim.SetBool("isRunning", true);
