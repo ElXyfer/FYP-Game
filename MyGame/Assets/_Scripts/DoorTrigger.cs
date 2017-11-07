@@ -25,7 +25,7 @@ public class DoorTrigger : MonoBehaviour {
 			if(doorIsOpen)
 			{	
 				anim.SetTrigger("KeepOpen");
-				//fpScript.SwitchCam_PlayScene();
+				fpScript.SwitchCam_PlayScene();
 			}	
 		} else if(this.gameObject.tag == "Door2" && Inventory.FruitAmount == 1) {
 				anim.SetTrigger("Open");
