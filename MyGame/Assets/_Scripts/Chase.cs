@@ -40,6 +40,7 @@ public class Chase : MonoBehaviour {
 				anim.SetBool("isWalking", true);
 				anim.SetBool("isIdle", false);
 				anim.SetBool("isAttacking", false);
+				anim.SetBool("isHit", false);
 
 				// checks distance between guard and waypoint
 				if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
@@ -77,6 +78,7 @@ public class Chase : MonoBehaviour {
 					this.transform.Translate(0,0, Time.deltaTime * speed);
 					anim.SetBool("isWalking", true);
 					anim.SetBool("isAttacking", false);
+					anim.SetBool("isHit", false);
 
 				}
 				else 

@@ -11,6 +11,8 @@ TagManager:
   - Door1
   - Door2
   - HairPin
+  - Hands
+  - key
   layers:
   - Default
   - TransparentFX

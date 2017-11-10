@@ -24,7 +24,6 @@ public class Inventory : MonoBehaviour {
 	void Start () {
 		animationscript = GetComponent<AnimationScript>();
 		FruitAmount = 0;
-		//StartCoroutine(MyCoroutine());
 	}
 
 	void OnTriggerEnter(Collider item) {
@@ -34,25 +33,14 @@ public class Inventory : MonoBehaviour {
 		}
 
 		if(item.gameObject.tag == "HairPin") {
-			
 				print("Hair pin found ! this could be usefull. Press T to take it"); 
 				animationscript.PickUpItem();
-//			IEnumerator MyCoroutine () {
-//				yield return new WaitForSeconds(3f);
 				pointLight.SetActive(false);
-			//}
-				
 		}	
 	}
 
-	void OnTriggerExit(Collider item) {
-			
-	} 
-
-
-
-
 	void TriggerTing(Collider item){
+
 		foreach(Transform child in inventoryPanel.transform) {
 
 			// if item in inventory has same tag as collected item
@@ -88,9 +76,6 @@ public class Inventory : MonoBehaviour {
 				}
 			}
 		} 
-
-
-
 
 	}
 

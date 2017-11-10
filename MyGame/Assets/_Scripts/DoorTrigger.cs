@@ -7,6 +7,7 @@ public class DoorTrigger : MonoBehaviour {
 	Animator anim;
 	private bool doorIsOpen = false;
 	private FPScript fpScript;
+
 	public GameObject doorObject;
 
 
@@ -28,6 +29,7 @@ public class DoorTrigger : MonoBehaviour {
 				fpScript.SwitchCam_PlayScene();
 			}	
 		} else if(this.gameObject.tag == "Door2" && Inventory.FruitAmount == 1) {
+				print("show message");
 				anim.SetTrigger("Open");
 		}
 	}

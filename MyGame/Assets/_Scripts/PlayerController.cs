@@ -6,36 +6,29 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator anim;
 
-	public float speed = 1f;
-	public float rotationSpeed = 100.0f;
-	public bool isMoving = false;
+	public float speed;
+	public float sprintSpeed;
 
-//	public float vert;
-//	public float hori;
-//	public float sprint;
+	public float rotationSpeed = 100.0f;
+	bool isMoving = false;
+	private HitDetection hitDetection;
 	
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+		hitDetection = GetComponent<HitDetection>();
 	}
 
 
 	// Update is called once per frame
 	void Update () {
-//		vert = Input.GetAxis("Vertical");
-//		hori = Input.GetAxis("Horizontal");
-//		Sprinting();
 
 		if(Input.GetKeyDown("space")) {
-			
 			anim.SetBool("isAttacking", true);
-				anim.SetBool("isIdle", false);
+			anim.SetBool("isIdle", false);
 			anim.SetBool("isWalking", false);
 			anim.SetBool("isRunning", false);
-
-
 		}
-
 
 		float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
@@ -51,13 +44,13 @@ public class PlayerController : MonoBehaviour {
         	anim.SetBool("isWalking", true);
         	anim.SetBool("isIdle", false);
 			anim.SetBool("isRunning", false);
-				anim.SetBool("isAttacking", false);
+			anim.SetBool("isAttacking", false);
 
-        	if(Input.GetKey(KeyCode.Z)){
-        		anim.SetBool("isRunning", true);
-        		speed = 3f;
+	        	if(Input.GetKey(KeyCode.Z)){
+	        		anim.SetBool("isRunning", true);
+	        		speed = sprintSpeed;
+	        	}
         	}
-        }
 
         } 
         else {
@@ -67,18 +60,10 @@ public class PlayerController : MonoBehaviour {
 
 	}
 
-//	void FixedUpdate () {
-//		anim.SetFloat("walk", vert);
-//		anim.SetFloat("Turn", hori);
-//		anim.SetFloat("run", sprint);
-//
-//	}
-//
-//	void Sprinting() { 
-//		if(Input.GetButton("Fire1")){
-//			sprint = 0.2f;
-//		} else {
-//			sprint = 0.0f;
-//		}	
-//	}
+	public void EnemyIsDead(){
+		if(hitDetection.EnemyHealth <= 0){
+			anim.SetBool("isIdle", true);
+		}
+	}
+
 }
