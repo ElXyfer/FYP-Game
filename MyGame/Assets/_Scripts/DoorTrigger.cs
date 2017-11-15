@@ -4,43 +4,55 @@ using UnityEngine;
 
 public class DoorTrigger : MonoBehaviour {
 
-	Animator anim;
-	private bool doorIsOpen = false;
-	private FPScript fpScript;
-
-	public GameObject doorObject;
+    Animator anim;
+    private bool doorIsOpen = false;
+    private FPScript fpScript;
 
 
-
-	// Use this for initialization
-	void Awake () {
-		anim = GetComponent<Animator>();
-		fpScript = doorObject.GetComponent<FPScript>();
-	}
+    public GameObject enemy;
+    public GameObject doorObject;
 
 
-	void OnTriggerEnter(Collider other) {
-		if(this.gameObject.tag == "Door1") {
-			anim.SetTrigger("Open");
-			doorIsOpen = true;
-			if(doorIsOpen)
-			{	
-				anim.SetTrigger("KeepOpen");
-				fpScript.SwitchCam_PlayScene();
-			}	
-		} else if(this.gameObject.tag == "Door2" && Inventory.FruitAmount == 1) {
-				print("show message");
-				anim.SetTrigger("Open");
-		}
-	}
 
-	void OnTriggerStay(Collider other) {
-		anim.SetTrigger("KeepOpen");
-	}
+    // Use this for initialization
+    void Awake () {
+        anim = GetComponent<Animator>();
+        fpScript = doorObject.GetComponent<FPScript>();
+    }
 
-	void OnTriggerExit(Collider other) {
-			anim.SetTrigger("Close");
-			doorIsOpen = false;
-	} 
+
+    void OnTriggerEnter(Collider other) {
+        if(this.gameObject.tag == "Door1") {
+            anim.SetTrigger("Open");
+            doorIsOpen = true;
+            if(doorIsOpen)
+            {   
+                anim.SetTrigger("KeepOpen");
+                fpScript.SwitchCam_PlayScene();
+                doorIsOpen = false;
+            }   
+        } else if(this.gameObject.tag == "Door2") { //&& Inventory.FruitAmount == 1
+                doorIsOpen = true;
+                anim.SetTrigger("Open");
+                
+            if(doorIsOpen) {
+                anim.SetTrigger("KeepOpen");
+                enemy.gameObject.SetActive(true);
+                doorIsOpen = false;
+            }
+        } else if(this.gameObject.tag == "DoorLocker") {
+                doorIsOpen = true;
+                anim.SetTrigger("Open");
+        }
+    }
+
+    //void OnTriggerStay(Collider other) {
+    //    anim.SetTrigger("KeepOpen");
+    //}
+
+    //void OnTriggerExit(Collider other) {
+    //        anim.SetTrigger("Close");
+    //        doorIsOpen = false;
+    //} 
 
 }

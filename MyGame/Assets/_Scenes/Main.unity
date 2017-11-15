@@ -375,7 +375,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!92 &57420495
 Behaviour:
   m_ObjectHideFlags: 0
@@ -1806,7 +1806,6 @@ GameObject:
   - component: {fileID: 748572529}
   - component: {fileID: 748572528}
   - component: {fileID: 748572527}
-  - component: {fileID: 748572526}
   m_Layer: 0
   m_Name: Door (2)
   m_TagString: Untagged
@@ -1828,23 +1827,6 @@ Transform:
   m_Father: {fileID: 1235328054}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!95 &748572526
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 748572523}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b3d49cfb5eba450cbbad8df8c7a9d8a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!23 &748572527
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1896,22 +1878,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 748572523}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &752837917 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1023509548306460, guid: 3056c591f21104113a3f2156a1d9ce57,
-    type: 2}
-  m_PrefabInternal: {fileID: 2044105772}
---- !u!114 &752837918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 752837917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e858d18d323564ce49bb65bd9d2aec2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &795803883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2022,22 +1988,6 @@ Camera:
   m_PrefabParentObject: {fileID: 2000000, guid: baec086904791744185aaa07a6cf55c2,
     type: 2}
   m_PrefabInternal: {fileID: 272844345}
---- !u!1 &835057996 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1359407995210866, guid: af086fb280d3a484a9097d0b6175b9c6,
-    type: 2}
-  m_PrefabInternal: {fileID: 563735437}
---- !u!114 &835057997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 835057996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e858d18d323564ce49bb65bd9d2aec2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &884499441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3546,22 +3496,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1255134921}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1274265872 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1823793723572428, guid: 0bbc947842c314ca2a00fc65e140e1f0,
-    type: 2}
-  m_PrefabInternal: {fileID: 137871928}
---- !u!114 &1274265873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1274265872}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42790175f62604ac79b0bbe765089785, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1334840285
 GameObject:
   m_ObjectHideFlags: 0
@@ -3580,7 +3514,7 @@ GameObject:
   - component: {fileID: 1334840294}
   m_Layer: 0
   m_Name: FirstPersonCam
-  m_TagString: Untagged
+  m_TagString: FPSCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4416,7 +4350,6 @@ GameObject:
   - component: {fileID: 1789921749}
   - component: {fileID: 1789921748}
   - component: {fileID: 1789921747}
-  - component: {fileID: 1789921746}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -4438,23 +4371,6 @@ Transform:
   m_Father: {fileID: 1235328054}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &1789921746
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1789921743}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b3d49cfb5eba450cbbad8df8c7a9d8a, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!23 &1789921747
 MeshRenderer:
   m_ObjectHideFlags: 0
