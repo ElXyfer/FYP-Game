@@ -30,12 +30,10 @@ public class Inventory : MonoBehaviour {
 		// look through all icons in inventory 
 		if(item.gameObject.tag == "Fruit") {
 			TriggerTing(item);
-		}
-
-		if(item.gameObject.tag == "HairPin") {
+		} else if(item.gameObject.tag == "HairPin") {
 				print("Hair pin found ! this could be usefull. Press T to take it"); 
-				animationscript.PickUpItem();
-				pointLight.SetActive(false);
+				//animationscript.PickUpItem();
+                Destroy(pointLight, 3);
 		}	
 	}
 
@@ -94,10 +92,5 @@ public class Inventory : MonoBehaviour {
 				item.SetActive(false);
 			}
 		}	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
