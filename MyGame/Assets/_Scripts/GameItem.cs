@@ -6,7 +6,7 @@ public class GameItem : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(this.gameObject.tag == "Fruit"){
-			Destroy(this.gameObject);
+			Destroy(gameObject);
 		}
 
 		if(this.gameObject.tag == "Grape"){
