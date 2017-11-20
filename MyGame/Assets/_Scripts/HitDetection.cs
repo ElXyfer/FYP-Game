@@ -30,13 +30,14 @@ public class HitDetection : MonoBehaviour {
 	void Update () {
 		if(EnemyHealth <= 0){
 			anim.SetBool("Defeated", true);
+           
 			Invoke ("DestroyObject", 5);
 		}
 	}
 
 	void DestroyObject(){
-		Destroy(enemy);
         Instantiate(lockerKey, objectLocation.position, objectLocation.rotation);
+        Destroy(enemy);
 	}
 
 }

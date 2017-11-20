@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animationscript = GetComponent<AnimationScript>();
-		FruitAmount = 0;
+		//FruitAmount = 0;
 	}
 
 	void OnTriggerEnter(Collider item) {

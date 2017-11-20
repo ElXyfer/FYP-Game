@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33327395883341494}
   - component: {fileID: 135969565571560134}
   - component: {fileID: 23500318363764228}
+  - component: {fileID: 114869467144532510}
   m_Layer: 0
   m_Name: Fruit1
   m_TagString: Fruit
@@ -81,6 +82,17 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1234938855998886}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114869467144532510
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1234938855998886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6bb8648d439e4c45b0200078f40351b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!135 &135969565571560134
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -91,5 +103,5 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 1.0822179
+  m_Center: {x: -2.2999724e-11, y: -6.459185e-12, z: -0.056146383}
