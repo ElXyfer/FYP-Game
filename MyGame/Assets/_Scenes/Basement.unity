@@ -5060,7 +5060,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400138, guid: 01d49c3f6a918434081f40e758ffbb8c, type: 3}
       propertyPath: m_LocalPosition.x
+<<<<<<< HEAD
+      value: 26.77
+=======
       value: 30.04
+>>>>>>> LINCOLN-201117
       objectReference: {fileID: 0}
     - target: {fileID: 400138, guid: 01d49c3f6a918434081f40e758ffbb8c, type: 3}
       propertyPath: m_LocalPosition.y
