@@ -15,6 +15,7 @@ public class LevelManager : MonoBehaviour {
 		
 	}
 
+    // from the end of the walk animation
 	void AnimationComplete() {
 
 		SceneManager.LoadScene("Basement");

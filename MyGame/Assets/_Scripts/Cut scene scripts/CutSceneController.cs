@@ -5,24 +5,27 @@ using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 
-public class FPScript : MonoBehaviour {
+public class CutSceneController : MonoBehaviour {
 
 	Animator anim;
-	public PlayableDirector playableDirector;
+    public GameObject Player;
+	public PlayableDirector walkInScene;
 	public GameObject capsulGO;
 	private AgentScript agentScript;
 	private CameraSwitch cameraSwitch;
-	public GameObject fpcam;
+    public GameObject switchCamObjReference;
+
+
 
 	void Awake () {
 		anim = GetComponent<Animator>();
 		agentScript = capsulGO.GetComponent<AgentScript>();
-		cameraSwitch = fpcam.GetComponent<CameraSwitch>();
+        cameraSwitch = switchCamObjReference.GetComponent<CameraSwitch>();
 	}
 
 	public void SwitchCam_PlayScene(){
 		cameraSwitch.changeCamera(1);
-		playableDirector.Play();
+        walkInScene.Play();
 		agentScript.startNavMesh();
 	}
 

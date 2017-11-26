@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator anim;
 
+    public Transform Player;
 	public float speed;
 	public float sprintSpeed;
 
@@ -65,5 +66,10 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("isIdle", true);
 		}
 	}
+
+
+
+
+
 
 }
