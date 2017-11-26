@@ -1,49 +1,69 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
-public class DoorTrigger : MonoBehaviour {
+public class DoorTrigger : MonoBehaviour
+{
 
     Animator anim;
-    private bool doorIsOpen = false;
-    private FPScript fpScript;
-
-
+    bool doorIsOpen = false;
+    public GameObject Player;
     public GameObject enemy;
-    public GameObject doorObject;
 
-
+    CutSceneController fpScript;
+    CameraSwitch cameraSwitch;
+    public PlayableDirector playableDirector;
 
     // Use this for initialization
-    void Awake () {
+    void Awake()
+    {
         anim = GetComponent<Animator>();
-        fpScript = doorObject.GetComponent<FPScript>();
+        fpScript = Player.GetComponent<CutSceneController>();
+        cameraSwitch = GetComponent<CameraSwitch>();
     }
 
 
-    void OnTriggerEnter(Collider other) {
-        if(this.gameObject.tag == "Door1") {
+    void OnTriggerEnter(Collider other)
+    {
+        if (this.gameObject.tag == "Door1")
+        {
             anim.SetTrigger("Open");
             doorIsOpen = true;
-            if(doorIsOpen)
-            {   
+            if (doorIsOpen)
+            {
                 anim.SetTrigger("KeepOpen");
                 fpScript.SwitchCam_PlayScene();
                 doorIsOpen = false;
-            }   
-        } else if(this.gameObject.tag == "Door2") { //&& Inventory.FruitAmount == 1
-                doorIsOpen = true;
-                anim.SetTrigger("Open");
-                
-            if(doorIsOpen) {
+            }
+        } else if (this.gameObject.tag == "Door2") { //&& Inventory.FruitAmount == 1
+            doorIsOpen = true;
+            anim.SetTrigger("Open");
+            //Invoke("AwakeEnemy", 5);
+            if (doorIsOpen == true)
+            {
+                Start_WalkOut();
                 anim.SetTrigger("KeepOpen");
-                enemy.gameObject.SetActive(true);
                 doorIsOpen = false;
             }
-        } else if(this.gameObject.tag == "DoorLocker") {
-                doorIsOpen = true;
-                anim.SetTrigger("Open");
+
         }
+        else if (this.gameObject.tag == "DoorLocker")
+        {
+            doorIsOpen = true;
+            anim.SetTrigger("Open");
+        }
+    }
+
+
+    void AwakeEnemy()
+    {
+        enemy.gameObject.SetActive(true);
+    }
+
+    public void Start_WalkOut(){
+        cameraSwitch.changeCamera(1);
+        playableDirector.Play();
     }
 
     //void OnTriggerStay(Collider other) {
