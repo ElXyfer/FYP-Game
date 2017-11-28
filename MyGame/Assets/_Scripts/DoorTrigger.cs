@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.UI;
 
 public class DoorTrigger : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class DoorTrigger : MonoBehaviour
     CutSceneController fpScript;
     CameraSwitch cameraSwitch;
     public PlayableDirector playableDirector;
+    public Text GameText;
 
     // Use this for initialization
     void Awake()
@@ -36,7 +38,8 @@ public class DoorTrigger : MonoBehaviour
                 fpScript.SwitchCam_PlayScene();
                 doorIsOpen = false;
             }
-        } else if (this.gameObject.tag == "Door2") { //&& Inventory.FruitAmount == 1
+        } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= 1) { // change/ fix this to be = 1, inventory bug
+            
             doorIsOpen = true;
             anim.SetTrigger("Open");
             //Invoke("AwakeEnemy", 5);
@@ -64,6 +67,8 @@ public class DoorTrigger : MonoBehaviour
     public void Start_WalkOut(){
         cameraSwitch.changeCamera(1);
         playableDirector.Play();
+        GameText.text = "Press the space bar to attack.";
+
     }
 
     //void OnTriggerStay(Collider other) {

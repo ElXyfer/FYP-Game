@@ -36,7 +36,8 @@ public class HitDetection : MonoBehaviour {
 	}
 
 	void DestroyObject(){
-        Instantiate(lockerKey, objectLocation.position, objectLocation.rotation);
+        Inventory.ItemAmmount++;
+        print(Inventory.ItemAmmount);
         Destroy(enemy);
 	}
 
