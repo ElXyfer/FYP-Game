@@ -3851,7 +3851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1334840286
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4164,7 +4164,6 @@ MonoBehaviour:
   - {fileID: 1744523501613092, guid: ea06927141a354deabdbbc9373b7dd8d, type: 2}
   - {fileID: 1081580287763588, guid: 76cc4073990e0455bbee4d6767ceaa0b, type: 2}
   - {fileID: 1899015845681200, guid: a626a24cd482f444aa7677966794a1a7, type: 2}
-  fruitIcon: {fileID: 0}
   fruits: []
   bananaPrefab: {fileID: 1899015845681200, guid: a315e30b1b3b94649bc2de48a03795d1,
     type: 2}
@@ -5333,6 +5332,7 @@ MonoBehaviour:
   Player: {fileID: 1348665843}
   enemy: {fileID: 0}
   playableDirector: {fileID: 0}
+  GameText: {fileID: 0}
 --- !u!111 &1997485251
 Animation:
   m_ObjectHideFlags: 0
