@@ -6,10 +6,10 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-	public static int FruitAmount = -1;
+	public static int ItemAmmount = -1; // why -1?
 	public GameObject inventoryPanel;
 	public GameObject[] inventoryIcons;
-	public GameObject fruitIcon;
+	GameObject fruitIcon;
 	public List<GameObject> fruits = new List<GameObject>();
 
 
@@ -23,7 +23,7 @@ public class Inventory : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		animationscript = GetComponent<AnimationScript>();
-		//FruitAmount = 0;
+		ItemAmmount = 0;
 	}
 
 	void OnTriggerEnter(Collider item) {
@@ -58,15 +58,15 @@ public class Inventory : MonoBehaviour {
 
 		if(item.gameObject.tag == "Fruit") {
 
-			FruitAmount++;
-			print("fruit amount is " + FruitAmount);
+			ItemAmmount++;
+			print("Item amount is " + ItemAmmount);
 
 			for(int count = 1; count <= inventoryIcons.Length; count++) {
 
 				// if charge and counter are the same 
-				if (FruitAmount == count) {
+				if (ItemAmmount == count) {
 					// add an icon from the array 
-					fruitIcon = Instantiate(inventoryIcons[count - 1]);
+                    fruitIcon = Instantiate(inventoryIcons[count - 1]);
 					fruitIcon.transform.SetParent(inventoryPanel.transform);
 
 					// turns baticon into list
