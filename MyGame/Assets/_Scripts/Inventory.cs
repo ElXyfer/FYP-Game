@@ -15,14 +15,12 @@ public class Inventory : MonoBehaviour {
 
 	public GameObject bananaPrefab;
 	public GameObject pointLight;
-	private GameObject bananaGUI;
-	private AnimationScript animationscript;
+    GameObject bananaGUI;
 
 	public bool haveBanana = false;
 
 	// Use this for initialization
 	void Start () {
-		animationscript = GetComponent<AnimationScript>();
 		ItemAmmount = 0;
 	}
 

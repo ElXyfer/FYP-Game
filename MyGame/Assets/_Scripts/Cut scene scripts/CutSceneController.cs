@@ -7,7 +7,6 @@ using UnityEngine.Playables;
 
 public class CutSceneController : MonoBehaviour {
 
-	Animator anim;
     public GameObject Player;
 	public PlayableDirector walkInScene;
 	public GameObject capsulGO;
@@ -18,7 +17,6 @@ public class CutSceneController : MonoBehaviour {
 
 
 	void Awake () {
-		anim = GetComponent<Animator>();
 		agentScript = capsulGO.GetComponent<AgentScript>();
         cameraSwitch = switchCamObjReference.GetComponent<CameraSwitch>();
 	}
