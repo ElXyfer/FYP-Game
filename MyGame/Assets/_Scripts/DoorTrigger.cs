@@ -16,6 +16,7 @@ public class DoorTrigger : MonoBehaviour
     CameraSwitch cameraSwitch;
     public PlayableDirector playableDirector;
     public Text GameText;
+    public Button myBtn;
 
     // Use this for initialization
     void Awake()
@@ -23,6 +24,8 @@ public class DoorTrigger : MonoBehaviour
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
         cameraSwitch = GetComponent<CameraSwitch>();
+        myBtn.gameObject.SetActive(false);
+
     }
 
 
@@ -38,7 +41,7 @@ public class DoorTrigger : MonoBehaviour
                 fpScript.SwitchCam_PlayScene();
                 doorIsOpen = false;
             }
-        } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= 1) { // change/ fix this to be = 1, inventory bug
+        } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= -1) { // change/ fix this to be = 1, inventory bug
             
             doorIsOpen = true;
             anim.SetTrigger("Open");
@@ -50,11 +53,11 @@ public class DoorTrigger : MonoBehaviour
                 doorIsOpen = false;
             }
 
-        }
-        else if (this.gameObject.tag == "DoorLocker")
-        {
+        } else if (this.gameObject.tag == "DoorLocker") {
             doorIsOpen = true;
             anim.SetTrigger("Open");
+        } else if(this.gameObject.tag == "CellDoor1") {
+            print("Talking to friend");
         }
     }
 
@@ -65,6 +68,7 @@ public class DoorTrigger : MonoBehaviour
     }
 
     public void Start_WalkOut(){
+        Player.SetActive(false);
         cameraSwitch.changeCamera(1);
         playableDirector.Play();
         GameText.text = "Press the space bar to attack.";
