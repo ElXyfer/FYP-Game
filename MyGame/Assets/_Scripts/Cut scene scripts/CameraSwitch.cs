@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraSwitch : MonoBehaviour {
 
 	public List<Camera> cameras = new List<Camera>();
+    public int playerScore = 100;
 
 	void Awake () {
 		

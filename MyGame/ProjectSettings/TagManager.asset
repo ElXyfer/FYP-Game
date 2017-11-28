@@ -15,6 +15,7 @@ TagManager:
   - key
   - FPSCamera
   - DoorLocker
+  - CellDoor1
   layers:
   - Default
   - TransparentFX

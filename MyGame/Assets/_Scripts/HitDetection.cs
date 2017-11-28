@@ -10,10 +10,16 @@ public class HitDetection : MonoBehaviour {
 	public GameObject lockerKey;
 
 	Animator anim;
+    public GameObject convoLink;
+    Conversation convo;
+
+    private CameraSwitch cameraSwitch;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+        convo = convoLink.GetComponent<Conversation>();
+        cameraSwitch = GetComponent<CameraSwitch>();
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -31,14 +37,20 @@ public class HitDetection : MonoBehaviour {
 		if(EnemyHealth <= 0){
 			anim.SetBool("Defeated", true);
            
-			Invoke ("DestroyObject", 5);
+			Invoke ("DestroyObject", 2);
 		}
 	}
 
-	void DestroyObject(){
+	public void DestroyObject(){
         Inventory.ItemAmmount++;
+        cameraSwitch.changeCamera(1);
+        convo.Start_Conversation();
         print(Inventory.ItemAmmount);
         Destroy(enemy);
+
+
 	}
+
+
 
 }
