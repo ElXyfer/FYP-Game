@@ -511,8 +511,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 0
   m_Events:
-  - time: 9
-    functionName: AnimationComplete1
+  - time: 1.5166667
+    functionName: TriggerNextCamera
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
