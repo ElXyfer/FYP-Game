@@ -16,6 +16,10 @@ TagManager:
   - FPSCamera
   - DoorLocker
   - CellDoor1
+  - Door3
+  - CameraManager
+  - CutSceneB2
+  - Cameras
   layers:
   - Default
   - TransparentFX
