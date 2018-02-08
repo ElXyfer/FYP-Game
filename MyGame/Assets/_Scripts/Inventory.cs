@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour {
 
-	public static int ItemAmmount = -1;
+	public static int ItemAmmount = -1; // why -1?
 	public GameObject inventoryPanel;
 	public GameObject[] inventoryIcons;
 	GameObject fruitIcon;

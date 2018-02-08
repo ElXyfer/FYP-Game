@@ -18,6 +18,7 @@ public class Conversation : MonoBehaviour
         cameraSwitch = GetComponent<CameraSwitch>();
     }
 
+
     public void Start_Conversation()
     {
         isPlaying = true;
@@ -96,4 +97,4 @@ public class Conversation : MonoBehaviour
 
     }
 
-} // and agaim
+}

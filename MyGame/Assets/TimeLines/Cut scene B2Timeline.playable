@@ -430,7 +430,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_GenerateMotionCurves: 1
   m_Events:
-  - time: 6.483333
+  - time: 6.5
     functionName: AnimationComplete2
     data: 
     objectReferenceParameter: {fileID: 0}
