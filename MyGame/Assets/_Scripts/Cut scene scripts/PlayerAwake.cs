@@ -8,7 +8,7 @@ public class PlayerAwake : MonoBehaviour {
 	public PlayableDirector playableDirector;
 
 	void Awake () {
-	playableDirector.Play();
+	//playableDirector.Play();
 	}
 	// Use this for initialization
 	void Start () {
@@ -20,10 +20,10 @@ public class PlayerAwake : MonoBehaviour {
 		
 	}
 
-	public void AnimationComplete1() {
-		ethan.gameObject.SetActive(true);
-		cameraSwitch.changeCamera(1);
-	}
+	//public void AnimationComplete1() {
+	//	ethan.gameObject.SetActive(true);
+	//	cameraSwitch.changeCamera(1);
+	//}
 
 	
 }
