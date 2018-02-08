@@ -4,22 +4,17 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour {
 
-	public float EnemyHealth;
-	public GameObject enemy;
-	public Transform objectLocation;
-	public GameObject lockerKey;
-
+	public static float EnemyHealth;
 	Animator anim;
-    public GameObject convoLink;
-    Conversation convo;
-
-    private CameraSwitch cameraSwitch;
+    GameObject GameManager;
+    CutSceneManager cutSceneManager;
 
 	// Use this for initialization
-	void Start () {
+	void Awake () {
 		anim = GetComponent<Animator>();
-        convo = convoLink.GetComponent<Conversation>();
-        cameraSwitch = GetComponent<CameraSwitch>();
+        GameManager = GameObject.FindWithTag("CutSceneManager");
+        cutSceneManager = GameManager.GetComponent<CutSceneManager>();
+        EnemyHealth = 5;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -34,23 +29,20 @@ public class HitDetection : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(EnemyHealth <= 0){
+		if(EnemyHealth <= 1){
 			anim.SetBool("Defeated", true);
            
-			Invoke ("DestroyObject", 2);
+            Invoke ("DestroyObject", 2); // needs to go 
 		}
 	}
 
-	public void DestroyObject(){
+	public void DestroyObject(){ // move this to a cut scene controller
         Inventory.ItemAmmount++;
-        cameraSwitch.changeCamera(1);
-        convo.Start_Conversation();
-        print(Inventory.ItemAmmount);
-        Destroy(enemy);
 
+        Destroy(this.gameObject); // change time loading on this
+        if(this.gameObject.tag == "EnemyV1")
+            cutSceneManager.PlayCSB3();
 
 	}
-
-
 
 }

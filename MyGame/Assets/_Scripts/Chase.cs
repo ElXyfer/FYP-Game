@@ -14,18 +14,16 @@ public class Chase : MonoBehaviour {
 	public float rotSpeed = 0.2f;
 	public float speed = 1.5f;
 	float accuracyWP = 2.0f;
-	private HitDetection hitDect;
 
 	// Use this for initialization
 	void Start () {
-		hitDect = head.GetComponent<HitDetection>();
 		anim = GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
-	if(hitDect.EnemyHealth <= 0) return;
+        if(HitDetection.EnemyHealth <= 0) return;
 
 		// work out the direction the player is to gaurd
 		Vector3 direction = player.position - this.transform.position;

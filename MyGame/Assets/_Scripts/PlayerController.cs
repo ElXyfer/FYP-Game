@@ -12,12 +12,10 @@ public class PlayerController : MonoBehaviour {
 
 	public float rotationSpeed = 100.0f;
 	bool isMoving = false;
-	private HitDetection hitDetection;
 	
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
-		hitDetection = GetComponent<HitDetection>();
 	}
 
 
@@ -62,7 +60,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	public void EnemyIsDead(){
-		if(hitDetection.EnemyHealth <= 0){
+        if(HitDetection.EnemyHealth <= 0){
 			anim.SetBool("isIdle", true);
 		}
 	}
