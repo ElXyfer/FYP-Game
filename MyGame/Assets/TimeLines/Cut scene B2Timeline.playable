@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 337831424, guid: 6a10b2909283487f913b00d94cd3faf5, type: 3}
   m_Name: Cut scene B2Timeline
   m_EditorClassIdentifier: 
-  m_Id: 0
   m_NextId: 0
   m_Tracks:
   - {fileID: 114127079220515028}
@@ -19,9 +18,7 @@ MonoBehaviour:
   - {fileID: 114645044103642136}
   m_FixedDuration: 0
   m_EditorSettings:
-    fps: 60
-  m_UpdateMode: 0
-  m_ParameterName: 
+    m_Framerate: 60
   m_DurationMode: 0
 --- !u!74 &74843631442508646
 AnimationClip:
@@ -121,7 +118,7 @@ AnimationClip:
       attribute: 4
       script: {fileID: 0}
       typeID: 4
-      customType: 14
+      customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 0
@@ -453,8 +450,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Locked: 0
   m_Muted: 0
-  m_Soloed: 0
-  m_Height: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -465,14 +460,7 @@ MonoBehaviour:
     m_Asset: {fileID: 114166151183199400}
     m_UnderlyingAsset: {fileID: 7400000, guid: 1cb8ed3cbba15f0479fbae54e0a963df, type: 3}
     m_Duration: 2.966666666666667
-    m_ParentID: 0
     m_TimeScale: 0.8
-    m_BlendCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
     m_ParentTrack: {fileID: 114050808956276296}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
@@ -524,6 +512,7 @@ MonoBehaviour:
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 3.2333333333333334
     m_DisplayName: HumanoidRun
+    m_Version: 1
   m_OpenClipPreExtrapolation: 0
   m_OpenClipPostExtrapolation: 0
   m_OpenClipOffsetPosition: {x: 0, y: 0, z: 0}
@@ -533,6 +522,8 @@ MonoBehaviour:
   m_Position: {x: 0, y: 0, z: -0.09385443}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 0
+  m_AvatarMask: {fileID: 0}
+  m_ApplyAvatarMask: 1
 --- !u!114 &114127079220515028
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -546,8 +537,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Locked: 0
   m_Muted: 0
-  m_Soloed: 0
-  m_Height: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -558,14 +547,7 @@ MonoBehaviour:
     m_Asset: {fileID: 114645189512897848}
     m_UnderlyingAsset: {fileID: 74843631442508646}
     m_Duration: 6.2
-    m_ParentID: 0
     m_TimeScale: 1
-    m_BlendCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
     m_ParentTrack: {fileID: 114127079220515028}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
@@ -617,6 +599,7 @@ MonoBehaviour:
     m_PostExtrapolationTime: Infinity
     m_PreExtrapolationTime: 0
     m_DisplayName: Walk_Out
+    m_Version: 1
   m_OpenClipPreExtrapolation: 1
   m_OpenClipPostExtrapolation: 1
   m_OpenClipOffsetPosition: {x: 0, y: 0, z: 0}
@@ -626,6 +609,8 @@ MonoBehaviour:
   m_Position: {x: 0, y: 0.2, z: 0}
   m_Rotation: {x: 0, y: 0, z: 0, w: 1}
   m_ApplyOffsets: 1
+  m_AvatarMask: {fileID: 0}
+  m_ApplyAvatarMask: 1
 --- !u!114 &114165721862615736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -684,8 +669,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Locked: 0
   m_Muted: 0
-  m_Soloed: 0
-  m_Height: 0
   m_CustomPlayableFullTypename: 
   m_AnimClip: {fileID: 0}
   m_Parent: {fileID: 11400000}
@@ -696,14 +679,7 @@ MonoBehaviour:
     m_Asset: {fileID: 114296710341598044}
     m_UnderlyingAsset: {fileID: 114296710341598044}
     m_Duration: 2.966666666666667
-    m_ParentID: 0
     m_TimeScale: 1
-    m_BlendCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
     m_ParentTrack: {fileID: 114645044103642136}
     m_EaseInDuration: 0
     m_EaseOutDuration: 0
@@ -755,6 +731,7 @@ MonoBehaviour:
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
     m_DisplayName: Active
+    m_Version: 1
   m_PostPlaybackState: 0
 --- !u!114 &114645189512897848
 MonoBehaviour:
