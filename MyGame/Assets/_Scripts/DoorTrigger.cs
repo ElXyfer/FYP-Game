@@ -9,12 +9,16 @@ public class DoorTrigger : MonoBehaviour
 
     Animator anim;
     bool doorIsOpen = false;
-    public GameObject Player;
+    public GameObject Player, AnimatedEnemy;
     public GameObject enemy;
+    GameObject mainCamera;
+    GameObject cameras;
+    GameObject cutScene;
+    GameObject cameraManager;
 
-    CutSceneController fpScript;
-    CameraSwitch cameraSwitch;
-    public PlayableDirector playableDirector;
+    //CutSceneController fpScript;
+    //CameraSwitch cameraSwitch;
+    //public PlayableDirector playableDirector;
     public Text GameText;
     public Button myBtn;
 
@@ -22,15 +26,16 @@ public class DoorTrigger : MonoBehaviour
     void Awake()
     {
         anim = GetComponent<Animator>();
-        fpScript = Player.GetComponent<CutSceneController>();
-        cameraSwitch = GetComponent<CameraSwitch>();
-        myBtn.gameObject.SetActive(false);
-
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        cameras = GameObject.FindGameObjectWithTag("Cameras");
+        cutScene = cameras.transform.Find("Cut scene B2").gameObject;
+        cameraManager = GameObject.FindGameObjectWithTag("CameraManager");
     }
 
 
     void OnTriggerEnter(Collider other)
     {
+
         if (this.gameObject.tag == "Door1")
         {
             anim.SetTrigger("Open");
@@ -38,7 +43,7 @@ public class DoorTrigger : MonoBehaviour
             if (doorIsOpen)
             {
                 anim.SetTrigger("KeepOpen");
-                fpScript.SwitchCam_PlayScene();
+                //fpScript.SwitchCam_PlayScene();
                 doorIsOpen = false;
             }
         } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= -1) { // change/ fix this to be = 1, inventory bug
@@ -46,12 +51,24 @@ public class DoorTrigger : MonoBehaviour
             doorIsOpen = true;
             anim.SetTrigger("Open");
             //Invoke("AwakeEnemy", 5);
-            if (doorIsOpen == true)
-            {
-                Start_WalkOut();
-                anim.SetTrigger("KeepOpen");
-                doorIsOpen = false;
-            }
+            //if (doorIsOpen == true)
+            //{
+
+      
+            cutScene.GetComponent<PlayableDirector>().Play();
+            cameraManager.GetComponent<CameraManager>().GetCamera(mainCamera, cutScene);
+            Start_WalkOut();
+
+            //if(cutSceneB2.activeSelf) {
+            //    print("be my love ");
+            //} else {
+            //    print("not freakin leaving");
+            //}
+
+                //anim.SetTrigger("KeepOpen");
+                //doorIsOpen = false;
+
+           // }
 
         } else if (this.gameObject.tag == "DoorLocker") {
             doorIsOpen = true;
@@ -69,11 +86,16 @@ public class DoorTrigger : MonoBehaviour
 
     public void Start_WalkOut(){
         Player.SetActive(false);
-        cameraSwitch.changeCamera(1);
-        playableDirector.Play();
+        //cameraSwitch.changeCamera(1);
+        //playableDirector.Play();
         GameText.text = "Press the space bar to attack.";
 
     }
+
+        
+
+
+
 
     //void OnTriggerStay(Collider other) {
     //    anim.SetTrigger("KeepOpen");
