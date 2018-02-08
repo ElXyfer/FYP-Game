@@ -91,9 +91,10 @@ public class Conversation : MonoBehaviour
         isPlaying = false;
         if (isPlaying == false)
         {
+            cameraSwitch.changeCamera(1);
             myBtn.gameObject.SetActive(false);
         }
-        cameraSwitch.changeCamera(1);
+
 
     }
 

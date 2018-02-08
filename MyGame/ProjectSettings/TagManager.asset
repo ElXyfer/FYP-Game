@@ -16,6 +16,9 @@ TagManager:
   - FPSCamera
   - DoorLocker
   - CellDoor1
+  - EnemyV1
+  - GameItemManager
+  - CutSceneManager
   layers:
   - Default
   - TransparentFX
