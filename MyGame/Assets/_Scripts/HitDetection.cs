@@ -43,9 +43,6 @@ public class HitDetection : MonoBehaviour {
         Inventory.ItemAmmount++;
 
         Destroy(this.gameObject); // change time loading on this
-        if(this.gameObject.name == "ybot2")
-            cutSceneManager.PlayCSB3();
-
 	}
 
 }
