@@ -28,7 +28,7 @@ public class WalkingOut : MonoBehaviour {
         player.transform.position = new Vector3(36, 0, -2.2f);
         player.transform.Rotate(Time.deltaTime, -90, 0);
         enemy.SetActive(true);
-        AnimatedEnemy.SetActive(false);
+        Destroy(AnimatedEnemy, 0f);
         GameText.text = "";
 
     }

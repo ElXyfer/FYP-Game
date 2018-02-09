@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HitDetection : MonoBehaviour {
 
-	public static float EnemyHealth;
+	public static float EnemyHealth = 20;
+    public int attackDamage = 5;
 	Animator anim;
     GameObject GameManager;
     CutSceneManager cutSceneManager;
@@ -14,7 +15,6 @@ public class HitDetection : MonoBehaviour {
 		anim = GetComponent<Animator>();
         GameManager = GameObject.FindWithTag("CutSceneManager");
         cutSceneManager = GameManager.GetComponent<CutSceneManager>();
-        EnemyHealth = 5;
 	}
 
 	void OnTriggerEnter(Collider other)
@@ -40,7 +40,7 @@ public class HitDetection : MonoBehaviour {
         Inventory.ItemAmmount++;
 
         Destroy(this.gameObject); // change time loading on this
-        if(this.gameObject.tag == "EnemyV1")
+        if(this.gameObject.name == "ybot2")
             cutSceneManager.PlayCSB3();
 
 	}

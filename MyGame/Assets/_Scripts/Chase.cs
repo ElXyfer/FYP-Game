@@ -30,7 +30,7 @@ public class Chase : MonoBehaviour {
 
 		// looking at angle between player and guard on y axis
 		direction.y = 0;
-		float angle = Vector3.Angle(direction, head.forward);
+        float angle = Vector3.Angle(direction, this.gameObject.transform.forward);
 
 			if(state == "patrol" && waypoints.Length > 0)
 			{ 
