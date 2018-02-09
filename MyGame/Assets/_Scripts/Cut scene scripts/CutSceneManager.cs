@@ -14,8 +14,7 @@ public class CutSceneManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Awake () {
-        camSwitch = camSwitchLink.GetComponent<CameraSwitch>();
-        convoScript = csb3Camera.GetComponent<Conversation>();
+
 	}
 	
 	// Update is called once per frame
@@ -23,8 +22,4 @@ public class CutSceneManager : MonoBehaviour {
 
 	}
 
-    public void PlayCSB3() {
-        camSwitch.changeCamera(1);
-        convoScript.Start_Conversation();
-    }
 }

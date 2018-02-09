@@ -21,6 +21,7 @@ TagManager:
   - CutSceneManager
   - Enemy
   - EnemyHands
+  - Test
   layers:
   - Default
   - TransparentFX
