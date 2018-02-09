@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CutSceneManager : MonoBehaviour {
 
+    // camera switch to CSB3 
     public GameObject camSwitchLink;
     CameraSwitch camSwitch;
 
+    // CSB3 Camera
     public GameObject csb3Camera;
     Conversation convoScript;
 

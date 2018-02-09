@@ -19,6 +19,8 @@ TagManager:
   - EnemyV1
   - GameItemManager
   - CutSceneManager
+  - Enemy
+  - EnemyHands
   layers:
   - Default
   - TransparentFX
