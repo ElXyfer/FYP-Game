@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HitDetection : MonoBehaviour {
 
-	public static float EnemyHealth = 20;
+	public static float EnemyHealth = 5;
+    public RectTransform healthBar;
     public int attackDamage = 5;
 	Animator anim;
     GameObject GameManager;
@@ -22,6 +24,7 @@ public class HitDetection : MonoBehaviour {
 		if(other.gameObject.tag == "Hands") {
 			EnemyHealth -= 1f;
 			anim.SetBool("isHit", true);
+            healthBar.sizeDelta = new Vector2(EnemyHealth * 2, healthBar.sizeDelta.y);
 			print("Hit" + 1);
 		}
 	}
