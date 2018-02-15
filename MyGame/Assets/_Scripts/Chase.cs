@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Chase : MonoBehaviour {
 
 	public Transform player;
-	public Transform head;
 	Animator anim;
 
 	string state = "patrol";
 	public GameObject[] waypoints;
 	int currentWP = 0;
-	public float rotSpeed = 0.2f;
-	public float speed = 1.5f;
 	float accuracyWP = 2.0f;
+    NavMeshAgent agent;
 
 	// Use this for initialization
 	void Start () {
 		anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
 	}
 	
 	// Update is called once per frame
@@ -44,25 +44,14 @@ public class Chase : MonoBehaviour {
 				if(Vector3.Distance(waypoints[currentWP].transform.position, transform.position) < accuracyWP)
 				{
 					// goes through waypoints
-					currentWP++;
-					if(currentWP >= waypoints.Length)
-					{
-						currentWP = 0;
-					}
+                    currentWP = Random.Range(0, waypoints.Length);
 				}
 
-					// rotate guard to waypoint
-					direction = waypoints[currentWP].transform.position - transform.position;
-
-					// turn guard to waypoint
-					this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotSpeed * Time.deltaTime);
-
-					// move guard towards waypoint
-					this.transform.Translate(0,0, Time.deltaTime * speed);
+                agent.SetDestination(waypoints[currentWP].transform.position);
 			}
 
 			// if distance between gaurd and player is < 10 and the angle is < 90 Degre or persuing is active 
-			if(Vector3.Distance(player.position, this.transform.position) < 10 && (angle < 90 || state == "persuing"))
+			if(Vector3.Distance(player.position, this.transform.position) < 2 && (angle < 90 || state == "persuing"))
 			{
 				// start walking and chasing
 				state = "persuing";
@@ -73,10 +62,11 @@ public class Chase : MonoBehaviour {
 				// if close, attack
 				if(direction.magnitude > 0.9)
 				{
-					this.transform.Translate(0,0, Time.deltaTime * speed);
-					anim.SetBool("isWalking", true);
-					anim.SetBool("isAttacking", false);
-					anim.SetBool("isHit", false);
+                this.transform.Translate(0,0, Time.deltaTime * agent.speed);
+                    if (agent.isActiveAndEnabled)
+                    {
+                        agent.SetDestination(player.transform.position);
+                    }
 
 				}
 				else 

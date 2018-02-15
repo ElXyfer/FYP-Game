@@ -24,7 +24,7 @@ public class DoorTrigger : MonoBehaviour
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
         cameraSwitch = GetComponent<CameraSwitch>();
-        myBtn.gameObject.SetActive(false);
+//        myBtn.gameObject.SetActive(false);
 
     }
 
