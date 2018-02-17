@@ -6,8 +6,7 @@ public class PlayerController : MonoBehaviour {
 
 	private Animator anim;
 
-    public Transform Player;
-	public float speed;
+    public float speed;
 	public float sprintSpeed;
 
 	public float rotationSpeed = 100.0f;
@@ -24,10 +23,12 @@ public class PlayerController : MonoBehaviour {
 
 		if(Input.GetKeyDown("space")) {
 			anim.SetBool("isAttacking", true);
-			anim.SetBool("isIdle", false);
-			anim.SetBool("isWalking", false);
-			anim.SetBool("isRunning", false);
 		}
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            anim.SetBool("bookisOpen", true);
+        }
 
 		float translation = Input.GetAxis("Vertical") * speed;
         float rotation = Input.GetAxis("Horizontal") * rotationSpeed;
@@ -38,25 +39,21 @@ public class PlayerController : MonoBehaviour {
 
         if(translation != 0) {
 			isMoving = true;
-			if(isMoving == true){
+			//if(isMoving == true){
 				speed = 1f;
         	anim.SetBool("isWalking", true);
-        	anim.SetBool("isIdle", false);
-			anim.SetBool("isRunning", false);
-			anim.SetBool("isAttacking", false);
+            anim.SetBool("bookisOpen", false);
+            anim.SetBool("isRunning", false);
 
-	        	if(Input.GetKey(KeyCode.Z)){
-	        		anim.SetBool("isRunning", true);
-	        		speed = sprintSpeed;
-	        	}
+        	if(Input.GetKey(KeyCode.Z)){
+        		anim.SetBool("isRunning", true);
+        		speed = sprintSpeed;
         	}
+        	//}
 
-        } 
-        else {
-			anim.SetBool("isWalking", false);
-			anim.SetBool("isIdle", true);
+        } else {
+            anim.SetBool("isWalking", false);
         }
-
 	}
 
 	public void EnemyIsDead(){
@@ -64,6 +61,11 @@ public class PlayerController : MonoBehaviour {
 			anim.SetBool("isIdle", true);
 		}
 	}
+
+    void OpenBook() {
+        
+
+    }
 
 
 
