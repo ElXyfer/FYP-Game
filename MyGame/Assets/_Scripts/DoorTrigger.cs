@@ -16,7 +16,6 @@ public class DoorTrigger : MonoBehaviour
     CameraSwitch cameraSwitch;
     public PlayableDirector playableDirector;
     public Text GameText;
-    public Button myBtn;
 
     // Use this for initialization
     void Awake()
@@ -24,8 +23,6 @@ public class DoorTrigger : MonoBehaviour
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
         cameraSwitch = GetComponent<CameraSwitch>();
-//        myBtn.gameObject.SetActive(false);
-
     }
 
 

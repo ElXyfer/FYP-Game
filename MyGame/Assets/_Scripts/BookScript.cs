@@ -52,7 +52,7 @@ public class BookScript : MonoBehaviour {
             Book.SetActive(false);
             anim.enabled = true;
             anim.SetBool("bookisOpen", false);
-            CameraPivot.transform.localPosition = new Vector3(0f, 1.29f, -4.92f);
+            CameraPivot.transform.localPosition = new Vector3(0f, 1.9f, -3.42f);
             CameraPivot.transform.localEulerAngles = new Vector3(0f, 0f, 0f);
             print("Book status" + BookIsActive);
         }
