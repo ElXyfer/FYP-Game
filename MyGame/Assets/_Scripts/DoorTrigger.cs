@@ -11,17 +11,21 @@ public class DoorTrigger : MonoBehaviour
     bool doorIsOpen = false;
     public GameObject Player;
     public GameObject enemy;
+    public GameObject WalkOut;
+    public GameObject WalkInOffice;
 
     CutSceneController fpScript;
     CameraSwitch cameraSwitch;
-    public PlayableDirector playableDirector;
-    public Text GameText;
+    PlayerController playerController;
+    CutScene cutScene;
 
     // Use this for initialization
     void Awake()
     {
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
+        cutScene = WalkOut.GetComponent<CutScene>();
+        playerController = Player.GetComponent<PlayerController>();
         cameraSwitch = GetComponent<CameraSwitch>();
     }
 
@@ -38,38 +42,38 @@ public class DoorTrigger : MonoBehaviour
                 fpScript.SwitchCam_PlayScene();
                 doorIsOpen = false;
             }
-        } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= -1) { // change/ fix this to be = 1, inventory bug
+        } else if (this.gameObject.tag == "Door2" && Inventory.ItemAmmount >= 1) { // change/ fix this to be = 1, inventory bug
             
             doorIsOpen = true;
             anim.SetTrigger("Open");
             //Invoke("AwakeEnemy", 5);
             if (doorIsOpen == true)
             {
-                Start_WalkOut();
+                cutScene.Start_WalkOut();
                 anim.SetTrigger("KeepOpen");
                 doorIsOpen = false;
             }
 
-        } else if (this.gameObject.tag == "DoorLocker") {
-            doorIsOpen = true;
-            anim.SetTrigger("Open");
-        } else if(this.gameObject.tag == "CellDoor1") {
+        } else if(this.gameObject.tag == "OfficeDoor") {
             print("Talking to friend");
-        }
+        } 
     }
 
+	private void OnTriggerStay(Collider other)
+	{
+        if (this.gameObject.tag == "Test")
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                playerController.enabled = false;
+            }
+        }
+	}
 
-    void AwakeEnemy()
+
+	void AwakeEnemy()
     {
         enemy.gameObject.SetActive(true);
-    }
-
-    public void Start_WalkOut(){
-        Player.SetActive(false);
-        cameraSwitch.changeCamera(1);
-        playableDirector.Play();
-        GameText.text = "Press the space bar to attack.";
-
     }
 
     //void OnTriggerStay(Collider other) {

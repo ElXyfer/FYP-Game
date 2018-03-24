@@ -10,13 +10,8 @@ public class WalkingOut : MonoBehaviour {
     CameraSwitch cameraSwitch;
     public Text GameText;
 
-	// Use this for initialization
-	void Start () {
-        
-	}
-	
 	// Update is called once per frame
-	void Update () {
+	void Awake () {
         cameraSwitch = GetComponent<CameraSwitch>();
 	}
 
