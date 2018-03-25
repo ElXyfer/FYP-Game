@@ -18,6 +18,7 @@ public class DoorTrigger : MonoBehaviour
     CameraSwitch cameraSwitch;
     PlayerController playerController;
     CutScene cutScene;
+    CutSceneOfficeWalkIn csOfficeWalkIn;
 
     // Use this for initialization
     void Awake()
@@ -25,6 +26,7 @@ public class DoorTrigger : MonoBehaviour
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
         cutScene = WalkOut.GetComponent<CutScene>();
+        csOfficeWalkIn = WalkInOffice.GetComponent<CutSceneOfficeWalkIn>();
         playerController = Player.GetComponent<PlayerController>();
         cameraSwitch = GetComponent<CameraSwitch>();
     }
@@ -55,7 +57,12 @@ public class DoorTrigger : MonoBehaviour
             }
 
         } else if(this.gameObject.tag == "OfficeDoor") {
-            print("Talking to friend");
+            doorIsOpen = true;
+            if (doorIsOpen == true)
+            {
+                csOfficeWalkIn.Start_OfficeWalkIn();
+                doorIsOpen = false;
+            }
         } 
     }
 

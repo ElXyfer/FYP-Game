@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class CutSceneManager : MonoBehaviour {
 
-    // camera switch to CSB3 
-    public GameObject camSwitchLink;
-    CameraSwitch camSwitch;
+    public GameObject player;
 
-    // CSB3 Camera
-    public GameObject csb3Camera;
-    Conversation convoScript;
-
+    CameraSwitch cameraSwitch;
 	// Use this for initialization
 	void Awake () {
-
+        cameraSwitch = GetComponent<CameraSwitch>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
 	}
+
+    public void End_WalkInToOffice(){
+        player.SetActive(true);
+        cameraSwitch.changeCamera(1);
+        player.transform.position = new Vector3(22, 0, -8.5f);
+        player.transform.Rotate(Time.deltaTime, -154, 0);
+    }
 
 }

@@ -8,7 +8,7 @@ public class PlayerAwake : MonoBehaviour {
 	public PlayableDirector playableDirector;
 
 	void Awake () {
-	playableDirector.Play();
+	    playableDirector.Play();
 	}
 	// Use this for initialization
 	void Start () {
