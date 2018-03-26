@@ -23,6 +23,11 @@ TagManager:
   - EnemyHands
   - Test
   - OfficeDoor
+  - img1
+  - img2
+  - img3
+  - MiniGame1
+  - Safe
   layers:
   - Default
   - TransparentFX
