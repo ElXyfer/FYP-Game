@@ -5,9 +5,24 @@ using UnityEngine.UI;
 
 public class MovePuzzle : MonoBehaviour {
 
-    public float speed = 1.0f;
-    //public Image[] myImages;
+    public GameObject puzzleBoard;
+    public static float speed = 165f;
     public List<Image> myImages = new List<Image>();
+    public static int puzzleisComplete;
+    public GameObject Player;
+
+    public GameObject WalkInOffice;
+    PlayerController playerController;
+
+    CutSceneOfficeWalkIn csOfficeWalkIn;
+
+    void Awake()
+    {
+        csOfficeWalkIn = WalkInOffice.GetComponent<CutSceneOfficeWalkIn>();
+        playerController = Player.GetComponent<PlayerController>();
+
+    }
+
 
     void Update()
     {
@@ -17,24 +32,35 @@ public class MovePuzzle : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Test"))
+
+        if (other.gameObject.CompareTag("MiniGame1"))
         {
             foreach (Image image in myImages)
             {
                 image.color = Color.blue;
-                Debug.Log("in");
+             }
+        } else if (other.gameObject.CompareTag("Fruit"))
+        {
+            this.gameObject.transform.localPosition = new Vector2(-455f, 233f);
+            puzzleisComplete++;
+            puzzleBoard.SetActive(false);
+            if(puzzleisComplete == 1) {
+                callWalkInScene();
+            } else if (puzzleisComplete == 3) {
+                playerController.enabled = true;
+                print("safe unlocked");
             }
+
+
+             Debug.Log("Fruity");
         }
 
-        if(other.gameObject.CompareTag("Fruit")) {
-            Debug.Log("Donezo");
-        }
     }
 
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Test"))
+        if (other.gameObject.CompareTag("MiniGame1"))
         {
             foreach (Image image in myImages)
             {
@@ -42,9 +68,11 @@ public class MovePuzzle : MonoBehaviour {
                 this.gameObject.transform.localPosition = new Vector2(-455f, 233f);
                 Debug.Log("out");
             }
-
         }
     }
-    //    
+
+    void callWalkInScene() {
+        csOfficeWalkIn.Start_OfficeWalkIn();
+    }
 
 } // x -445 y 233

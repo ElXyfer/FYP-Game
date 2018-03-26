@@ -13,6 +13,8 @@ public class DoorTrigger : MonoBehaviour
     public GameObject enemy;
     public GameObject WalkOut;
     public GameObject WalkInOffice;
+    public GameObject MiniGame;
+    public Text GameText;
 
     CutSceneController fpScript;
     CameraSwitch cameraSwitch;
@@ -26,13 +28,16 @@ public class DoorTrigger : MonoBehaviour
         anim = GetComponent<Animator>();
         fpScript = Player.GetComponent<CutSceneController>();
         cutScene = WalkOut.GetComponent<CutScene>();
-        csOfficeWalkIn = WalkInOffice.GetComponent<CutSceneOfficeWalkIn>();
         playerController = Player.GetComponent<PlayerController>();
         cameraSwitch = GetComponent<CameraSwitch>();
     }
 
+    private void Update()
+    {
+      
+    }
 
-    void OnTriggerEnter(Collider other)
+	void OnTriggerEnter(Collider other)
     {
         if (this.gameObject.tag == "Door1")
         {
@@ -60,7 +65,8 @@ public class DoorTrigger : MonoBehaviour
             doorIsOpen = true;
             if (doorIsOpen == true)
             {
-                csOfficeWalkIn.Start_OfficeWalkIn();
+                
+                //csOfficeWalkIn.Start_OfficeWalkIn();
                 doorIsOpen = false;
             }
         } 
@@ -68,10 +74,14 @@ public class DoorTrigger : MonoBehaviour
 
 	private void OnTriggerStay(Collider other)
 	{
-        if (this.gameObject.tag == "Test")
+        if (this.gameObject.tag == "OfficeDoor" || this.gameObject.tag == "Safe")
         {
+            GameText.text = "Press 'U' to unlock this";
+            Invoke("removeText", 6);
             if (Input.GetKeyDown(KeyCode.U))
             {
+                Invoke("removeText", 1);
+                MiniGame.SetActive(true);
                 playerController.enabled = false;
             }
         }
@@ -83,13 +93,8 @@ public class DoorTrigger : MonoBehaviour
         enemy.gameObject.SetActive(true);
     }
 
-    //void OnTriggerStay(Collider other) {
-    //    anim.SetTrigger("KeepOpen");
-    //}
-
-    //void OnTriggerExit(Collider other) {
-    //        anim.SetTrigger("Close");
-    //        doorIsOpen = false;
-    //} 
+    void removeText() {
+        GameText.text = "";
+    }
 
 }
