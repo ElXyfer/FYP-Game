@@ -10,10 +10,10 @@ public class MovePuzzle : MonoBehaviour {
     public List<Image> myImages = new List<Image>();
     public static int puzzleisComplete;
     public GameObject Player;
-
     public GameObject WalkInOffice;
-    PlayerController playerController;
 
+    public Text GameText;
+    PlayerController playerController;
     CutSceneOfficeWalkIn csOfficeWalkIn;
 
     void Awake()
@@ -48,6 +48,7 @@ public class MovePuzzle : MonoBehaviour {
                 callWalkInScene();
             } else if (puzzleisComplete == 3) {
                 playerController.enabled = true;
+                GameText.text = "Safe unlocked ! and there was a book inside! Press B to read it";
                 print("safe unlocked");
             }
 

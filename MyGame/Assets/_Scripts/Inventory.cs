@@ -7,37 +7,28 @@ using UnityEngine;
 public class Inventory : MonoBehaviour
 {
 
-    public static int ItemAmmount = -1; // why -1?
+    public static int ItemAmmount; // why -1?
     public GameObject inventoryPanel;
     public GameObject[] inventoryIcons;
-
     public GameObject pointLight;
     public Text GameText;
 
-
-    // Use this for initialization
-    void Start()
-    {
-        ItemAmmount = 0;
-    }
-
     void OnTriggerEnter(Collider item)
     {
-
         GameObject gameItem;
         if (item.gameObject.tag == "Fruit")
         {
             ItemAmmount = 1;
             gameItem = Instantiate(inventoryIcons[0]);
             gameItem.transform.SetParent(inventoryPanel.transform);
-            print(ItemAmmount);
+            print("The item ammount is " + ItemAmmount);
         }
         else if (item.gameObject.tag == "Grape")
         {
             ItemAmmount = 2;
             gameItem = Instantiate(inventoryIcons[1]);
             gameItem.transform.SetParent(inventoryPanel.transform);
-            print(ItemAmmount);
+            print("The item ammount is " + ItemAmmount);
             GameText.text = "Pick up ting bruh";
 
         }
@@ -45,6 +36,7 @@ public class Inventory : MonoBehaviour
         {
             ItemAmmount = 3;
             gameItem = Instantiate(inventoryIcons[2]);
+            print("The item ammount is " + ItemAmmount);
             gameItem.transform.SetParent(inventoryPanel.transform);
         }
 
@@ -53,6 +45,5 @@ public class Inventory : MonoBehaviour
 	private void OnTriggerExit(Collider other)
 	{
         GameText.text = "";
-
 	}
 }
