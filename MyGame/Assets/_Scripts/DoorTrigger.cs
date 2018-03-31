@@ -32,11 +32,6 @@ public class DoorTrigger : MonoBehaviour
         cameraSwitch = GetComponent<CameraSwitch>();
     }
 
-    private void Update()
-    {
-      
-    }
-
 	void OnTriggerEnter(Collider other)
     {
         if (this.gameObject.tag == "Door1")
@@ -61,20 +56,12 @@ public class DoorTrigger : MonoBehaviour
                 doorIsOpen = false;
             }
 
-        } else if(this.gameObject.tag == "OfficeDoor") {
-            doorIsOpen = true;
-            if (doorIsOpen == true)
-            {
-                
-                //csOfficeWalkIn.Start_OfficeWalkIn();
-                doorIsOpen = false;
-            }
         } 
     }
 
 	private void OnTriggerStay(Collider other)
 	{
-        if (this.gameObject.tag == "OfficeDoor" || this.gameObject.tag == "Safe")
+        if (this.gameObject.tag == "OfficeDoor" && Inventory.ItemAmmount >= 2)
         {
             GameText.text = "Press 'U' to unlock this";
             Invoke("removeText", 6);
@@ -84,7 +71,20 @@ public class DoorTrigger : MonoBehaviour
                 MiniGame.SetActive(true);
                 playerController.enabled = false;
             }
+        } else if (this.gameObject.tag == "Safe" && Inventory.ItemAmmount >= 2)
+        {
+            GameText.text = "Press 'U' to unlock this";
+            Invoke("removeText", 6);
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                Invoke("removeText", 1);
+                MiniGame.SetActive(true);
+                playerController.enabled = false;
+            }
+        } else {
+            GameText.text = "You need something to open this door with, try look around.";
         }
+
 	}
 
 
