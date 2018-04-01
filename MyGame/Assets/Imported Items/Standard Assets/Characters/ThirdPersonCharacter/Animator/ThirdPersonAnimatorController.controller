@@ -456,6 +456,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: fightingID
   stateIDArray: 0000000001000000020000000300000004000000
+--- !u!114 &114785932256194236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 190dab01529a1416b85b6aade93f1354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: fightingID
+  stateIDArray: 0000000001000000020000000300000004000000
 --- !u!206 &206207568171797892
 BlendTree:
   m_ObjectHideFlags: 1
@@ -1337,7 +1350,7 @@ AnimatorStateMachine:
   - {fileID: 1109342368855344652}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours:
-  - {fileID: 114522505508506216}
+  - {fileID: 114785932256194236}
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_EntryPosition: {x: 48, y: 156, z: 0}
   m_ExitPosition: {x: 852, y: 156, z: 0}
