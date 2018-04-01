@@ -8,7 +8,6 @@ public class CutSceneOfficeWalkIn : MonoBehaviour
 {
 
     public GameObject Player;
-    public Text GameText;
     CameraSwitch cameraSwitch;
     public PlayableDirector playableDirector;
 
