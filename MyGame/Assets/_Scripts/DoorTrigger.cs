@@ -14,8 +14,12 @@ public class DoorTrigger : MonoBehaviour
     public GameObject WalkOut;
     public GameObject WalkInOffice;
     public GameObject MiniGame;
+    public GameObject MiniGamePlayer;
     public Text GameText;
 
+
+
+    MovePuzzle movePuzzle;
     CutSceneController fpScript;
     CameraSwitch cameraSwitch;
     PlayerController playerController;
@@ -30,6 +34,9 @@ public class DoorTrigger : MonoBehaviour
         cutScene = WalkOut.GetComponent<CutScene>();
         playerController = Player.GetComponent<PlayerController>();
         cameraSwitch = GetComponent<CameraSwitch>();
+        movePuzzle = MiniGamePlayer.GetComponent<MovePuzzle>();
+
+
     }
 
 	void OnTriggerEnter(Collider other)
@@ -69,6 +76,10 @@ public class DoorTrigger : MonoBehaviour
             {
                 Invoke("removeText", 1);
                 MiniGame.SetActive(true);
+
+                movePuzzle.firstMaze();
+               
+
                 playerController.enabled = false;
             }
         } else if (this.gameObject.tag == "Safe" && Inventory.ItemAmmount >= 2)
@@ -77,8 +88,13 @@ public class DoorTrigger : MonoBehaviour
             Invoke("removeText", 6);
             if (Input.GetKeyDown(KeyCode.U))
             {
+                
+
                 Invoke("removeText", 1);
                 MiniGame.SetActive(true);
+     
+                movePuzzle.secondMaze();
+
                 playerController.enabled = false;
             }
         } else {

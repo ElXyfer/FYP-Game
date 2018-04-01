@@ -28,6 +28,7 @@ TagManager:
   - img3
   - MiniGame1
   - Safe
+  - Maze
   layers:
   - Default
   - TransparentFX

@@ -11,8 +11,10 @@ public class MovePuzzle : MonoBehaviour {
     public static int puzzleisComplete;
     public GameObject Player;
     public GameObject WalkInOffice;
-
     public Text GameText;
+
+    public GameObject[] path;
+
     PlayerController playerController;
     CutSceneOfficeWalkIn csOfficeWalkIn;
 
@@ -20,6 +22,7 @@ public class MovePuzzle : MonoBehaviour {
     {
         csOfficeWalkIn = WalkInOffice.GetComponent<CutSceneOfficeWalkIn>();
         playerController = Player.GetComponent<PlayerController>();
+
 
     }
 
@@ -41,7 +44,7 @@ public class MovePuzzle : MonoBehaviour {
              }
         } else if (other.gameObject.CompareTag("Fruit"))
         {
-            this.gameObject.transform.localPosition = new Vector2(-455f, 233f);
+            this.gameObject.transform.localPosition = new Vector2(-455f, 217f);
             puzzleisComplete++;
             puzzleBoard.SetActive(false);
             if(puzzleisComplete == 1) {
@@ -75,5 +78,16 @@ public class MovePuzzle : MonoBehaviour {
     void callWalkInScene() {
         csOfficeWalkIn.Start_OfficeWalkIn();
     }
+
+    public void firstMaze() {
+            path[1].SetActive(false);
+    }
+
+    public void secondMaze()
+    {
+        path[0].SetActive(false);
+        path[1].SetActive(true);
+    }
+
 
 } // x -445 y 233
