@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour {
                 anim.SetBool("isRunning", false);
                 anim.SetBool("isAttacking", false);
 
-                if (Input.GetKey(KeyCode.Z))
+                if (Input.GetKey(KeyCode.Z) && Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
                 {
                     anim.SetBool("isRunning", true);
                     speed = sprintSpeed;

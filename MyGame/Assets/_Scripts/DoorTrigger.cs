@@ -26,6 +26,12 @@ public class DoorTrigger : MonoBehaviour
     CutScene cutScene;
     CutSceneOfficeWalkIn csOfficeWalkIn;
 
+    public void Start()
+    {
+        GameText.text = "Hold the 'Z' key on your keyboard to run";
+        //Invoke("removeText", 15);
+    }
+
     // Use this for initialization
     void Awake()
     {
@@ -89,8 +95,6 @@ public class DoorTrigger : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.U))
             {
                 
-
-                Invoke("removeText", 1);
                 MiniGame.SetActive(true);
      
                 movePuzzle.secondMaze();

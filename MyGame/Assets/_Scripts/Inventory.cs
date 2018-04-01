@@ -13,7 +13,7 @@ public class Inventory : MonoBehaviour
     public GameObject pointLight;
     public Text GameText;
 
-    void OnTriggerEnter(Collider item)
+	void OnTriggerEnter(Collider item)
     {
         GameObject gameItem;
         if (item.gameObject.tag == "Fruit")
@@ -42,8 +42,13 @@ public class Inventory : MonoBehaviour
 
     }
 
+    void ClearText() {
+        GameText.text = "";
+    }
+
+
 	private void OnTriggerExit(Collider other)
 	{
-        GameText.text = "";
+        ClearText();
 	}
 }
