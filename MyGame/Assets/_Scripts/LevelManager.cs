@@ -32,4 +32,8 @@ public class LevelManager : MonoBehaviour {
 	  }
 	}
 
+    public void EndHallWayScene() {
+        SceneManager.LoadScene("Basement");
+    }
+
 }
