@@ -17,8 +17,6 @@ public class DoorTrigger : MonoBehaviour
     public GameObject MiniGamePlayer;
     public Text GameText;
 
-
-
     MovePuzzle movePuzzle;
     CutSceneController fpScript;
     CameraSwitch cameraSwitch;
@@ -26,11 +24,6 @@ public class DoorTrigger : MonoBehaviour
     CutScene cutScene;
     CutSceneOfficeWalkIn csOfficeWalkIn;
 
-    public void Start()
-    {
-        GameText.text = "Hold the 'Z' key on your keyboard to run";
-        //Invoke("removeText", 15);
-    }
 
     // Use this for initialization
     void Awake()
